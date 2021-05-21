@@ -45,5 +45,11 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>We need camera access for adding great features....</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need location access for adding great features....</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need location access for adding great features....</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need location access for adding great features....</string>
 </dict>
 </plist>
