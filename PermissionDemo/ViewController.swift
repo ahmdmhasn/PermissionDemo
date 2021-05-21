@@ -7,11 +7,17 @@
 
 import UIKit
 
+// MARK: - ViewController
+//
 class ViewController: UIViewController {
   
+  // MARK: Outlets
+
   let segmentControl = UISegmentedControl(items: ViewController.types.map { $0.description} )
   let button = UIButton(type: .system)
   let label = UILabel()
+  
+  // MARK: Proeprties
   
   static let types: [PermissionType] = [
     .camera,
@@ -19,11 +25,13 @@ class ViewController: UIViewController {
     .location(locationType: .always)
   ]
   
+  // MARK: Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     segmentControl.selectedSegmentIndex = .zero
-    segmentControl.addTarget(self, action: #selector(segmentControlDidChangeValue), for: .valueChanged)
+    segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
     
     button.setTitle("Get Permission", for: .normal)
     button.addTarget(self, action: #selector(getPermission), for: .touchUpInside)
@@ -41,6 +49,8 @@ class ViewController: UIViewController {
     ])
   }
   
+  // MARK: Handlers
+  
   @objc func getPermission() {
     let index = segmentControl.selectedSegmentIndex
     let selectedType = ViewController.types[index]
@@ -51,10 +61,12 @@ class ViewController: UIViewController {
     }
   }
   
-  @objc func segmentControlDidChangeValue() {
+  @objc func segmentControlValueChanged() {
     label.text = nil
   }
 }
+
+// MARK: - String Helpers
 
 extension PermissionStatus: CustomStringConvertible {
   var description: String {
