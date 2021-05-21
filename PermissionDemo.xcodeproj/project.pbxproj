@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		027BD90A26582D680089501C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD90926582D680089501C /* AppDelegate.swift */; };
-		027BD90C26582D680089501C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD90B26582D680089501C /* SceneDelegate.swift */; };
 		027BD90E26582D680089501C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD90D26582D680089501C /* ViewController.swift */; };
 		027BD91126582D680089501C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 027BD90F26582D680089501C /* Main.storyboard */; };
 		027BD91326582D690089501C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 027BD91226582D690089501C /* Assets.xcassets */; };
 		027BD91626582D690089501C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 027BD91426582D690089501C /* LaunchScreen.storyboard */; };
+		027BD92726584BEB0089501C /* Permissionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92626584BEB0089501C /* Permissionable.swift */; };
+		027BD92D26584C070089501C /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92C26584C070089501C /* NotificationPermission.swift */; };
+		027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92F26584C2A0089501C /* PermissionDialog.swift */; };
+		027BD93326584C430089501C /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93226584C430089501C /* Permission.swift */; };
+		027BD93926584CC50089501C /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93826584CC50089501C /* CameraPermission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		027BD90626582D680089501C /* PermissionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PermissionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		027BD90926582D680089501C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		027BD90B26582D680089501C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		027BD90D26582D680089501C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		027BD91026582D680089501C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		027BD91226582D690089501C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		027BD91526582D690089501C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		027BD91726582D690089501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		027BD92626584BEB0089501C /* Permissionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissionable.swift; sourceTree = "<group>"; };
+		027BD92C26584C070089501C /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
+		027BD92F26584C2A0089501C /* PermissionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDialog.swift; sourceTree = "<group>"; };
+		027BD93226584C430089501C /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		027BD93826584CC50089501C /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +64,8 @@
 		027BD90826582D680089501C /* PermissionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				027BD92526584BD50089501C /* Permission */,
 				027BD90926582D680089501C /* AppDelegate.swift */,
-				027BD90B26582D680089501C /* SceneDelegate.swift */,
 				027BD90D26582D680089501C /* ViewController.swift */,
 				027BD90F26582D680089501C /* Main.storyboard */,
 				027BD91226582D690089501C /* Assets.xcassets */,
@@ -65,6 +73,26 @@
 				027BD91726582D690089501C /* Info.plist */,
 			);
 			path = PermissionDemo;
+			sourceTree = "<group>";
+		};
+		027BD92526584BD50089501C /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				027BD92A26584BF00089501C /* Permissionable */,
+				027BD93226584C430089501C /* Permission.swift */,
+				027BD92F26584C2A0089501C /* PermissionDialog.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		027BD92A26584BF00089501C /* Permissionable */ = {
+			isa = PBXGroup;
+			children = (
+				027BD92626584BEB0089501C /* Permissionable.swift */,
+				027BD92C26584C070089501C /* NotificationPermission.swift */,
+				027BD93826584CC50089501C /* CameraPermission.swift */,
+			);
+			path = Permissionable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				027BD90E26582D680089501C /* ViewController.swift in Sources */,
+				027BD92726584BEB0089501C /* Permissionable.swift in Sources */,
+				027BD93926584CC50089501C /* CameraPermission.swift in Sources */,
+				027BD93326584C430089501C /* Permission.swift in Sources */,
 				027BD90A26582D680089501C /* AppDelegate.swift in Sources */,
-				027BD90C26582D680089501C /* SceneDelegate.swift in Sources */,
+				027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */,
+				027BD92D26584C070089501C /* NotificationPermission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				INFOPLIST_FILE = PermissionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				INFOPLIST_FILE = PermissionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
