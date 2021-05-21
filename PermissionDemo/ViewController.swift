@@ -13,7 +13,11 @@ class ViewController: UIViewController {
   let button = UIButton(type: .system)
   let label = UILabel()
   
-  static let types: [PermissionType] = [.camera, .notification(options: [.alert])]
+  static let types: [PermissionType] = [
+    .camera,
+    .notification(options: [.alert]),
+    .location(locationType: .always)
+  ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,6 +65,8 @@ extension PermissionStatus: CustomStringConvertible {
       return "Denied"
     case .notDetermined:
       return "Not Determined"
+    case .disabled:
+      return "Disabled"
     }
   }
 }
@@ -72,6 +78,8 @@ extension PermissionType: CustomStringConvertible {
       return "Camera"
     case .notification:
       return "Notifications"
+    case .location:
+      return "Location"
     }
   }
 }

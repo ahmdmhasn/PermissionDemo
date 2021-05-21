@@ -23,7 +23,7 @@ struct NotificationPermission: Permissionable {
     }
   }
   
-  func checkStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
     current.getNotificationSettings { settings in
       switch settings.authorizationStatus {
       case .authorized, .ephemeral, .provisional:

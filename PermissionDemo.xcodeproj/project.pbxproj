@@ -17,6 +17,7 @@
 		027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92F26584C2A0089501C /* PermissionDialog.swift */; };
 		027BD93326584C430089501C /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93226584C430089501C /* Permission.swift */; };
 		027BD93926584CC50089501C /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93826584CC50089501C /* CameraPermission.swift */; };
+		027BD93E265856F50089501C /* LocationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93D265856F50089501C /* LocationPermission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		027BD92F26584C2A0089501C /* PermissionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDialog.swift; sourceTree = "<group>"; };
 		027BD93226584C430089501C /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		027BD93826584CC50089501C /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		027BD93D265856F50089501C /* LocationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				027BD92626584BEB0089501C /* Permissionable.swift */,
-				027BD92C26584C070089501C /* NotificationPermission.swift */,
 				027BD93826584CC50089501C /* CameraPermission.swift */,
+				027BD93D265856F50089501C /* LocationPermission.swift */,
+				027BD92C26584C070089501C /* NotificationPermission.swift */,
 			);
 			path = Permissionable;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				027BD93926584CC50089501C /* CameraPermission.swift in Sources */,
 				027BD93326584C430089501C /* Permission.swift in Sources */,
 				027BD90A26582D680089501C /* AppDelegate.swift in Sources */,
+				027BD93E265856F50089501C /* LocationPermission.swift in Sources */,
 				027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */,
 				027BD92D26584C070089501C /* NotificationPermission.swift in Sources */,
 			);

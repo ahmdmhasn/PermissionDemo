@@ -18,7 +18,7 @@ struct CameraPermission: Permissionable {
     }
   }
   
-  func checkStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
     let status = AVCaptureDevice.authorizationStatus(for: .video)
     switch status {
     case .authorized:
