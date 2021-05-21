@@ -20,6 +20,10 @@ enum PermissionStatus {
   ///
   case denied
   
+  /// Unable to find the required type
+  ///
+  case disabled
+  
   /// Unable to determine current state
   ///
   case notDetermined
@@ -36,6 +40,10 @@ enum PermissionType {
   /// Camera, Used for photo and video
   ///
   case camera
+  
+  /// Location. We can request even always or when in use
+  ///
+  case location(locationType: LocationPermissionType)
 }
 
 // MARK: - Permission
@@ -68,6 +76,9 @@ struct Permission {
       
     case .camera:
       return CameraPermission()
+      
+    case .location(let locationType):
+      return LocationPermission(type: locationType)
     }
   }
   
@@ -82,10 +93,10 @@ struct Permission {
       }
     }
     
-    permissionable.checkStatus { status in
+    permissionable.authorizationStatus { status in
       switch status {
-      case .authorized:
-        onStatusOnMainQueue(.authorized)
+      case .authorized, .disabled:
+        onStatusOnMainQueue(status)
 
       case .denied:
         dialog.showSettingsAlert()
