@@ -8,8 +8,16 @@
 import Foundation
 import CoreLocation
 
+// MARK: - LocationPermissionType
+//
 public enum LocationPermissionType {
+  
+  /// Location services regardless of whether the app is in use.
+  ///
   case always
+  
+  /// Location services while the app is in use.
+  ///
   case whenInUse
 }
 
