@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,12 +12,7 @@
 		027BD91126582D680089501C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 027BD90F26582D680089501C /* Main.storyboard */; };
 		027BD91326582D690089501C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 027BD91226582D690089501C /* Assets.xcassets */; };
 		027BD91626582D690089501C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 027BD91426582D690089501C /* LaunchScreen.storyboard */; };
-		027BD92726584BEB0089501C /* Permissionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92626584BEB0089501C /* Permissionable.swift */; };
-		027BD92D26584C070089501C /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92C26584C070089501C /* NotificationPermission.swift */; };
-		027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD92F26584C2A0089501C /* PermissionDialog.swift */; };
-		027BD93326584C430089501C /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93226584C430089501C /* Permission.swift */; };
-		027BD93926584CC50089501C /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93826584CC50089501C /* CameraPermission.swift */; };
-		027BD93E265856F50089501C /* LocationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BD93D265856F50089501C /* LocationPermission.swift */; };
+		027BD953265922290089501C /* Permission in Frameworks */ = {isa = PBXBuildFile; productRef = 027BD952265922290089501C /* Permission */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +23,7 @@
 		027BD91226582D690089501C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		027BD91526582D690089501C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		027BD91726582D690089501C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		027BD92626584BEB0089501C /* Permissionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissionable.swift; sourceTree = "<group>"; };
-		027BD92C26584C070089501C /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
-		027BD92F26584C2A0089501C /* PermissionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDialog.swift; sourceTree = "<group>"; };
-		027BD93226584C430089501C /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
-		027BD93826584CC50089501C /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
-		027BD93D265856F50089501C /* LocationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermission.swift; sourceTree = "<group>"; };
+		027BD9502659221E0089501C /* Permission */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Permission; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027BD953265922290089501C /* Permission in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +43,7 @@
 			children = (
 				027BD90826582D680089501C /* PermissionDemo */,
 				027BD90726582D680089501C /* Products */,
+				027BD94F2659221E0089501C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,7 +58,6 @@
 		027BD90826582D680089501C /* PermissionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				027BD92526584BD50089501C /* Permission */,
 				027BD90926582D680089501C /* AppDelegate.swift */,
 				027BD90D26582D680089501C /* ViewController.swift */,
 				027BD90F26582D680089501C /* Main.storyboard */,
@@ -77,25 +68,12 @@
 			path = PermissionDemo;
 			sourceTree = "<group>";
 		};
-		027BD92526584BD50089501C /* Permission */ = {
+		027BD94F2659221E0089501C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				027BD92A26584BF00089501C /* Permissionable */,
-				027BD93226584C430089501C /* Permission.swift */,
-				027BD92F26584C2A0089501C /* PermissionDialog.swift */,
+				027BD9502659221E0089501C /* Permission */,
 			);
-			path = Permission;
-			sourceTree = "<group>";
-		};
-		027BD92A26584BF00089501C /* Permissionable */ = {
-			isa = PBXGroup;
-			children = (
-				027BD92626584BEB0089501C /* Permissionable.swift */,
-				027BD93826584CC50089501C /* CameraPermission.swift */,
-				027BD93D265856F50089501C /* LocationPermission.swift */,
-				027BD92C26584C070089501C /* NotificationPermission.swift */,
-			);
-			path = Permissionable;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,6 +92,9 @@
 			dependencies = (
 			);
 			name = PermissionDemo;
+			packageProductDependencies = (
+				027BD952265922290089501C /* Permission */,
+			);
 			productName = PermissionDemo;
 			productReference = 027BD90626582D680089501C /* PermissionDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -169,13 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				027BD90E26582D680089501C /* ViewController.swift in Sources */,
-				027BD92726584BEB0089501C /* Permissionable.swift in Sources */,
-				027BD93926584CC50089501C /* CameraPermission.swift in Sources */,
-				027BD93326584C430089501C /* Permission.swift in Sources */,
 				027BD90A26582D680089501C /* AppDelegate.swift in Sources */,
-				027BD93E265856F50089501C /* LocationPermission.swift in Sources */,
-				027BD93026584C2A0089501C /* PermissionDialog.swift in Sources */,
-				027BD92D26584C070089501C /* NotificationPermission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +354,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		027BD952265922290089501C /* Permission */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Permission;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 027BD8FE26582D680089501C /* Project object */;
 }

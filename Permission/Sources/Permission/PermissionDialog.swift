@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - PermissionDialog
 //
-struct PermissionDialog {
+public struct PermissionDialog {
   
   /// To present different alerts
   ///
@@ -80,7 +80,7 @@ struct PermissionDialog {
 
 // MARK: - Configuration
 //
-extension PermissionDialog {
+public extension PermissionDialog {
   
   /// Dialog configrations
   ///
@@ -91,7 +91,7 @@ extension PermissionDialog {
     let cancel: String
     let settings: String
     
-    init(title: String = "Allow access to your location",
+    public init(title: String = "Allow access to your location",
          message: String = "We uses your location to show local content, improve recommendations, and more.",
          allow: String = "Allow",
          cancel: String = "Cancel",

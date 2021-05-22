@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-enum LocationPermissionType {
+public enum LocationPermissionType {
   case always
   case whenInUse
 }

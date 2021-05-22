@@ -10,7 +10,7 @@ import AVFoundation
 
 // MARK: - PermissionStatus - Represents valid permission status values
 //
-enum PermissionStatus {
+public enum PermissionStatus {
   
   /// User authories access
   ///
@@ -31,7 +31,7 @@ enum PermissionStatus {
 
 // MARK: - PermissionType - Avaiable permission types to be requested
 //
-enum PermissionType {
+public enum PermissionType {
   
   /// Notifications
   ///
@@ -48,9 +48,9 @@ enum PermissionType {
 
 // MARK: - Permission
 //
-struct Permission {
+public struct Permission {
   
-  typealias Configuration = PermissionDialog.Configuration
+  public typealias Configuration = PermissionDialog.Configuration
   
   /// PermissionType
   ///
@@ -62,7 +62,9 @@ struct Permission {
   
   /// Init
   ///
-  init(presenter: UIViewController, type: PermissionType, configuration: Configuration = Configuration()) {
+  public init(presenter: UIViewController,
+              type: PermissionType,
+              configuration: Configuration = Configuration()) {
     self.type = type
     self.dialog = PermissionDialog(presenter: presenter, configuration: configuration)
   }
@@ -85,7 +87,7 @@ struct Permission {
   /// Request permission.
   /// `onStatus` will be called with the `PermissionStatus` type
   ///
-  func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  public func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
     
     func onStatusOnMainQueue(_ status: PermissionStatus) {
       DispatchQueue.main.async {

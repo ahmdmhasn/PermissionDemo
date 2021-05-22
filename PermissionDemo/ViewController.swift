@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Permission
 
 // MARK: - ViewController
 //
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
 // MARK: - String Helpers
 
 extension PermissionStatus: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     switch self {
     case .authorized:
       return "Authorized"
@@ -84,7 +85,7 @@ extension PermissionStatus: CustomStringConvertible {
 }
 
 extension PermissionType: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     switch self {
     case .camera:
       return "Camera"
