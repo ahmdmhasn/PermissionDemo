@@ -12,13 +12,13 @@ import AVFoundation
 //
 struct CameraPermission: Permissionable {
     
-  func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func request(onStatus: @escaping PermissionHandler) {
     AVCaptureDevice.requestAccess(for: .video) { allowed in
       onStatus(allowed ? .authorized : .denied)
     }
   }
   
-  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func authorizationStatus(onStatus: @escaping PermissionHandler) {
     let status = AVCaptureDevice.authorizationStatus(for: .video)
     switch status {
     case .authorized:

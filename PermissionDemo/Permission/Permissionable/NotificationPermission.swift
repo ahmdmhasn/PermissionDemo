@@ -17,13 +17,13 @@ struct NotificationPermission: Permissionable {
     self.options = options
   }
   
-  func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func request(onStatus: @escaping PermissionHandler) {
     current.requestAuthorization(options: options) { granted, error in
       onStatus(granted ? .authorized : .denied)
     }
   }
   
-  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func authorizationStatus(onStatus: @escaping PermissionHandler) {
     current.getNotificationSettings { settings in
       switch settings.authorizationStatus {
       case .authorized, .ephemeral, .provisional:

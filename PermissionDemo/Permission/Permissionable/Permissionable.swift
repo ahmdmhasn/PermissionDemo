@@ -11,11 +11,13 @@ import Foundation
 //
 protocol Permissionable {
   
+  typealias PermissionHandler = (PermissionStatus) -> Void
+  
   /// Request permission
   ///
-  func request(onStatus: @escaping ((PermissionStatus) -> Void))
+  func request(onStatus: @escaping PermissionHandler)
   
   /// Check current status
   ///
-  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void))
+  func authorizationStatus(onStatus: @escaping PermissionHandler)
 }

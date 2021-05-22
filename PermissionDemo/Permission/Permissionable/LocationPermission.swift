@@ -19,16 +19,23 @@ class LocationPermission: NSObject, Permissionable {
   
   let locationManager: CLLocationManager
   let type: LocationPermissionType
-  private var onStatus: ((PermissionStatus) -> Void)?
+  private var onStatus: PermissionHandler?
   
   init(type: LocationPermissionType) {
     self.type = type
     self.locationManager = CLLocationManager()
+    super.init()
+    
+    locationManager.delegate = self
   }
   
-  func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func request(onStatus: @escaping PermissionHandler) {
     self.onStatus = onStatus
-    
+
+    guard CLLocationManager.locationServicesEnabled() else {
+      return onStatus(.disabled)
+    }
+
     switch type {
     case .always:
       locationManager.requestAlwaysAuthorization()
@@ -36,15 +43,10 @@ class LocationPermission: NSObject, Permissionable {
       locationManager.requestWhenInUseAuthorization()
     }
     
-    guard CLLocationManager.locationServicesEnabled() else {
-      return onStatus(.disabled)
-    }
-
-    locationManager.delegate = self
     locationManager.requestLocation()
   }
   
-  func authorizationStatus(onStatus: @escaping ((PermissionStatus) -> Void)) {
+  func authorizationStatus(onStatus: @escaping PermissionHandler) {
     let status = CLLocationManager.authorizationStatus()
     switch status {
     case .authorizedAlways, .authorizedWhenInUse:
@@ -53,7 +55,7 @@ class LocationPermission: NSObject, Permissionable {
       onStatus(.denied)
     case .notDetermined:
       onStatus(.notDetermined)
-    default:
+    @unknown default:
       onStatus(.notDetermined)
     }
   }
@@ -62,14 +64,14 @@ class LocationPermission: NSObject, Permissionable {
 // MARK: - CLLocationManagerDelegate
 //
 extension LocationPermission: CLLocationManagerDelegate {
+    
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { }
   
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    onStatus?(.authorized)
-    locationManager.stopUpdatingLocation()
-  }
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) { }
   
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    onStatus?(.denied)
-    locationManager.stopUpdatingLocation()
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    authorizationStatus { [weak self] status in
+      self?.onStatus?(status)
+    }
   }
 }
