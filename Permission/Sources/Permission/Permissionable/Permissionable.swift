@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Permissionable
 //
-protocol Permissionable {
+public protocol Permissionable {
   
   typealias PermissionHandler = (PermissionStatus) -> Void
   

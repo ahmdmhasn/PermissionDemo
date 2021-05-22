@@ -11,6 +11,8 @@ import UIKit
 //
 public struct Permission {
     
+  // MARK: Properties
+  
   /// Permissionable
   ///
   let permissionable: Permissionable
@@ -19,28 +21,33 @@ public struct Permission {
   ///
   let dialog: PermissionDialog
   
-  ///   /// Permission Init
+  // MARK: Init
+  
+  /// Init using `PermissionType` and `PermissionDialog`
   ///
-  /// - Parameters:
-  ///   - presenter: Used to present dialog
-  ///   - type: Permission type
-  ///   - configuration: Dialog configurations; Pass nil to used default value.
-  public init(presenter: UIViewController,
-              type: PermissionType,
-              configuration: Configuration? = nil) {
+  public init(permissionType: PermissionType, dialog: PermissionDialog) {
+    self.permissionable = Permission.permission(of: permissionType)
+    self.dialog = dialog
+  }
+
+  /// Init using `Permissionable` and `PermissionDialog`
+  ///
+  public init(permissionable: Permissionable, dialog: PermissionDialog) {
+    self.permissionable = permissionable
+    self.dialog = dialog
+  }
+  
+  /// Permission Init using presenter view controller, permission type and configurations using native alert controller.
+  ///
+  public init(presenter: UIViewController, type: PermissionType, configuration: Configuration? = nil) {
     let permissionable = Permission.permission(of: type)
     let config = configuration ?? permissionable.configuration
-    let dialog = PermissionDialog(presenter: presenter, configuration: config)
+    let dialog = AlertPermissionDialog(presenter: presenter, configuration: config)
     
     self.init(permissionable: permissionable, dialog: dialog)
   }
   
-  /// Init
-  ///
-  init(permissionable: Permissionable, dialog: PermissionDialog) {
-    self.permissionable = permissionable
-    self.dialog = dialog
-  }
+  // MARK: Handlers
   
   /// Request permission.
   /// Completion the `PermissionStatus` type on the main thread.
