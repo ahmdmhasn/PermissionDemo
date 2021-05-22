@@ -17,6 +17,13 @@ struct NotificationPermission: Permissionable {
     self.options = options
   }
   
+  var configuration: Configuration {
+    return ConfigurationWrapper(
+      title: "Allow access to your notifications",
+      message: "We use your notifiactions to let you up to date, send important events, and more."
+    )
+  }
+
   func request(onStatus: @escaping PermissionHandler) {
     current.requestAuthorization(options: options) { granted, error in
       onStatus(granted ? .authorized : .denied)

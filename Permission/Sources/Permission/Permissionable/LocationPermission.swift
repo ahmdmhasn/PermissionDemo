@@ -37,6 +37,13 @@ class LocationPermission: NSObject, Permissionable {
     locationManager.delegate = self
   }
   
+  var configuration: Configuration {
+    return ConfigurationWrapper(
+      title: "Allow access to your location",
+      message: "We use your location to show local content, improve recommendations, and more."
+    )
+  }
+  
   func request(onStatus: @escaping PermissionHandler) {
     self.onStatus = onStatus
 

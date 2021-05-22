@@ -12,6 +12,13 @@ import AVFoundation
 //
 struct CameraPermission: Permissionable {
     
+  var configuration: Configuration {
+    return ConfigurationWrapper(
+      title: "Allow access to your camera",
+      message: "We use your camera to take images, and more."
+    )
+  }
+
   func request(onStatus: @escaping PermissionHandler) {
     AVCaptureDevice.requestAccess(for: .video) { allowed in
       onStatus(allowed ? .authorized : .denied)

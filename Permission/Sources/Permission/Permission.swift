@@ -6,86 +6,44 @@
 //
 
 import UIKit
-import AVFoundation
-
-// MARK: - PermissionStatus - Represents valid permission status values
-//
-public enum PermissionStatus {
-  
-  /// User authories access
-  ///
-  case authorized
-  
-  /// User denied permission
-  ///
-  case denied
-  
-  /// Unable to find the required type
-  ///
-  case disabled
-  
-  /// Unable to determine current state
-  ///
-  case notDetermined
-}
-
-// MARK: - PermissionType - Avaiable permission types to be requested
-//
-public enum PermissionType {
-  
-  /// Notifications
-  ///
-  case notification(options: UNAuthorizationOptions = [])
-  
-  /// Camera, Used for photo and video
-  ///
-  case camera
-  
-  /// Location. We can request even always or when in use
-  ///
-  case location(locationType: LocationPermissionType)
-}
 
 // MARK: - Permission
 //
 public struct Permission {
-  
-  public typealias Configuration = PermissionDialog.Configuration
-  
-  /// PermissionType
+    
+  /// Permissionable
   ///
-  let type: PermissionType
+  let permissionable: Permissionable
   
   /// PermissionDialog - Responsible for settinga and permission alerts
   ///
   let dialog: PermissionDialog
   
-  /// Init
+  ///   /// Permission Init
   ///
+  /// - Parameters:
+  ///   - presenter: Used to present dialog
+  ///   - type: Permission type
+  ///   - configuration: Dialog configurations; Pass nil to used default value.
   public init(presenter: UIViewController,
               type: PermissionType,
-              configuration: Configuration = Configuration()) {
-    self.type = type
-    self.dialog = PermissionDialog(presenter: presenter, configuration: configuration)
+              configuration: Configuration? = nil) {
+    let permissionable = Permission.permission(of: type)
+    let config = configuration ?? permissionable.configuration
+    let dialog = PermissionDialog(presenter: presenter, configuration: config)
+    
+    self.init(permissionable: permissionable, dialog: dialog)
   }
   
-  /// Permissionable
+  /// Init
   ///
-  private var permissionable: Permissionable {
-    switch type {
-    case .notification(let options):
-      return NotificationPermission(options: options)
-      
-    case .camera:
-      return CameraPermission()
-      
-    case .location(let locationType):
-      return LocationPermission(type: locationType)
-    }
+  init(permissionable: Permissionable, dialog: PermissionDialog) {
+    self.permissionable = permissionable
+    self.dialog = dialog
   }
   
   /// Request permission.
-  /// `onStatus` will be called with the `PermissionStatus` type
+  /// Completion the `PermissionStatus` type on the main thread.
   ///
   public func request(onStatus: @escaping ((PermissionStatus) -> Void)) {
     
@@ -109,6 +67,26 @@ public struct Permission {
           permissionable.request(onStatus: onStatusOnMainQueue)
         }
       }
+    }
+  }
+}
+
+// MARK: - Static Helpers
+//
+extension Permission {
+  
+  /// Returns `Permissionable` for `PermissionType`
+  ///
+  static func permission(of type: PermissionType) -> Permissionable {
+    switch type {
+    case .notification(let options):
+      return NotificationPermission(options: options)
+      
+    case .camera:
+      return CameraPermission()
+      
+    case .location(let locationType):
+      return LocationPermission(type: locationType)
     }
   }
 }

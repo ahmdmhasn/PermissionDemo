@@ -20,4 +20,8 @@ protocol Permissionable {
   /// Check current status
   ///
   func authorizationStatus(onStatus: @escaping PermissionHandler)
+  
+  /// Dialog configurations; Mainly for dialogs presented
+  ///
+  var configuration: Configuration { get }
 }

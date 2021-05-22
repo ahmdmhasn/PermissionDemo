@@ -77,30 +77,3 @@ public struct PermissionDialog {
     }
   }
 }
-
-// MARK: - Configuration
-//
-public extension PermissionDialog {
-  
-  /// Dialog configrations
-  ///
-  struct Configuration {
-    let title: String
-    let message: String
-    let allow: String
-    let cancel: String
-    let settings: String
-    
-    public init(title: String = "Allow access to your location",
-         message: String = "We uses your location to show local content, improve recommendations, and more.",
-         allow: String = "Allow",
-         cancel: String = "Cancel",
-         settings: String = "Settings") {
-      self.title = title
-      self.message = message
-      self.allow = allow
-      self.cancel = cancel
-      self.settings = settings
-    }
-  }
-}
