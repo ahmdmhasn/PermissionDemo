@@ -15,7 +15,7 @@ Copy the `Permission` folder to your project.
 Add `import Permission` to your source code, unless you copied the source code.
 
 ### Request Permission
-```
+```swift
     let configration = Permission.Configuration()
     let permission = Permission(presenter: self, type: .camera, configuration: configration)
     
@@ -25,7 +25,7 @@ Add `import Permission` to your source code, unless you copied the source code.
 ```
 
 ### PermissionStatus
-```
+```swift
 public enum PermissionStatus {
   
   /// User authories access
@@ -47,7 +47,7 @@ public enum PermissionStatus {
 ```
 
 ### PermissionType
-```
+```swift
 public enum PermissionType {
   
   /// Notifications
@@ -65,7 +65,7 @@ public enum PermissionType {
 ```
 
 ### LocationPermissionType
-```
+```swift
 public enum LocationPermissionType {
   
   /// Location services regardless of whether the app is in use.
